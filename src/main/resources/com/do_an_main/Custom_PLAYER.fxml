@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="665.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Custom.Custom_PLAYER_Controller">
+    <children>
+        <Button layoutX="13.0" layoutY="611.0" mnemonicParsing="false" onAction="#back" text="Back" />
+        <TableView fx:id="tableViewTuyChinhPLAYER" layoutX="13.0" layoutY="14.0" prefHeight="334.0" prefWidth="794.0">
+            <columns>
+                <TableColumn fx:id="idPlayerCol" prefWidth="75.0" text="ID CLUB" />
+                <TableColumn fx:id="idClubCol" prefWidth="75.0" text="ID PLAYER" />
+                <TableColumn fx:id="namePlayerCol" prefWidth="193.6000213623047" text="NAME PLAYER" />
+                <TableColumn fx:id="shirtNumberCol" prefWidth="122.39996337890625" text="SHIRT NUMBER" />
+                <TableColumn fx:id="goalCol" prefWidth="96.0" text="GOAL" />
+                <TableColumn fx:id="yellowCardCol" prefWidth="104.79998779296875" text="YELLOWCARD" />
+                <TableColumn fx:id="redCardCol" prefWidth="128.00006103515625" text="REDCARD" />
+            </columns>
+        </TableView>
+      <Pane layoutX="128.0" layoutY="355.0" prefHeight="200.0" prefWidth="680.0" style="-fx-background-color: black; -fx-border-color: white;">
+         <children>
+            <Label layoutX="33.0" layoutY="24.0" style="-fx-background-color: white; -fx-border-color: blue;" text="ID Player" textFill="#9187c7" />
+            <Label layoutX="33.0" layoutY="62.0" prefHeight="19.0" prefWidth="48.0" style="-fx-background-color: white; -fx-border-color: blue;" text="ID CLUB" textFill="#9187c7" />
+            <Label layoutX="29.0" layoutY="99.0" prefHeight="19.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: blue;" text="NAME PLAYER" textFill="#9187c7" />
+            <Label layoutX="394.0" layoutY="23.0" prefHeight="19.0" prefWidth="89.0" style="-fx-background-color: white; -fx-border-color: blue;" text="SHIRT NUMBER" textFill="#9187c7" />
+            <Label layoutX="394.0" layoutY="61.0" prefHeight="19.0" prefWidth="36.0" style="-fx-background-color: white; -fx-border-color: blue;" text="GOAL" textFill="#9187c7" />
+            <Label layoutX="394.0" layoutY="99.0" prefHeight="19.0" prefWidth="82.0" style="-fx-background-color: white; -fx-border-color: blue;" text="YELLOW CARD" textFill="#9187c7" />
+            <TextField fx:id="textField_IdPlayer" layoutX="127.0" layoutY="21.0" />
+            <TextField fx:id="textField_IdClub" layoutX="127.0" layoutY="59.0" />
+            <TextField fx:id="textField_NamePlayer" layoutX="127.0" layoutY="97.0" />
+            <TextField fx:id="textField_ShirtNumber" layoutX="491.0" layoutY="21.0" />
+            <TextField fx:id="textField_Goal" layoutX="491.0" layoutY="59.0" />
+            <TextField fx:id="textField_YellowCard" layoutX="491.0" layoutY="97.0" />
+            <Label layoutX="394.0" layoutY="139.0" prefHeight="19.0" prefWidth="62.0" style="-fx-background-color: white; -fx-border-color: blue;" text="RED CARD" textFill="#9187c7" />
+            <TextField fx:id="textField_RedCard" layoutX="491.0" layoutY="136.0" />
+         </children>
+      </Pane>
+      <Button layoutX="342.0" layoutY="567.0" mnemonicParsing="false" onAction="#add" text="ADD" />
+      <Button layoutX="438.0" layoutY="567.0" mnemonicParsing="false" onAction="#delete" text="DELETE" />
+      <Button layoutX="546.0" layoutY="567.0" mnemonicParsing="false" onAction="#update" text="UPDATE" />
+      <Button layoutX="672.0" layoutY="567.0" mnemonicParsing="false" onAction="#save" text="SAVE" />
+      <Button layoutX="756.0" layoutY="566.0" mnemonicParsing="false" onAction="#clear" text="CLEAR" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="512.0" prefWidth="890.0" style="-fx-background-color: #383239;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Custom.Custom_Controller">
+   <children>
+      <Button layoutX="14.0" layoutY="463.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="56.0" text="Back" />
+      <Button alignment="CENTER" layoutX="42.0" layoutY="155.0" mnemonicParsing="false" onAction="#clb" prefHeight="201.0" prefWidth="266.0" style="-fx-background-color: #E3dbe8;">
+         <graphic>
+            <ImageView fitHeight="233.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../java/img/Image%20for%20Project/p14937.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="219.0" fitWidth="165.0" layoutX="368.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" />
+      <Button alignment="CENTER" layoutX="326.0" layoutY="153.0" mnemonicParsing="false" onAction="#hlv" prefHeight="201.0" prefWidth="266.0" style="-fx-background-color: #E3dbe8;">
+         <graphic>
+            <ImageView fitHeight="189.0" fitWidth="250.0" opacity="0.87" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../java/img/Image%20for%20Project/748145-alex-ferguson-wallpapers-2560x1600-samsung.jpg" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" layoutX="600.0" layoutY="155.0" mnemonicParsing="false" onAction="#player" prefHeight="201.0" prefWidth="266.0" style="-fx-background-color: #E3dbe8;">
+         <graphic>
+            <ImageView fitHeight="277.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../java/img/Image%20for%20Project/FPL_PRE-SEASON_TEAMS_1200x628.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

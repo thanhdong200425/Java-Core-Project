@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="515.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Custom.Custom_HLV_Controller">
+   <children>
+      <Button layoutX="14.0" layoutY="475.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <TableView fx:id="tableViewHLV" layoutX="55.0" layoutY="25.0" prefHeight="279.0" prefWidth="478.0">
+        <columns>
+          <TableColumn fx:id="idHlvCol" prefWidth="74.40002822875977" text="ID HLV" />
+          <TableColumn fx:id="nameHlvCol" prefWidth="279.1999969482422" text="NAME HLV" />
+            <TableColumn fx:id="idClbCol" prefWidth="124.79998779296875" text="ID CLB" />
+        </columns>
+      </TableView>
+      <Label layoutX="577.0" layoutY="51.0" text="ID HLV" />
+      <Label layoutX="565.0" layoutY="146.0" text="NAME HLV" />
+      <Label layoutX="577.0" layoutY="239.0" text="ID CLB" />
+      <TextField fx:id="textField_IdHlv" layoutX="631.0" layoutY="46.0" prefHeight="26.0" prefWidth="138.0" />
+      <TextField fx:id="textField_NameHlv" layoutX="631.0" layoutY="142.0" prefHeight="26.0" prefWidth="138.0" />
+      <TextField fx:id="textField_IdClb" layoutX="631.0" layoutY="235.0" prefHeight="26.0" prefWidth="138.0" />
+      <Button layoutX="551.0" layoutY="312.0" mnemonicParsing="false" onAction="#add" text="ADD" />
+      <Button layoutX="626.0" layoutY="312.0" mnemonicParsing="false" onAction="#clearAll" text="CLEAR" />
+      <Button layoutX="661.0" layoutY="373.0" mnemonicParsing="false" onAction="#update" prefHeight="26.0" prefWidth="66.0" text="UPDATE" />
+      <Button layoutX="592.0" layoutY="374.0" mnemonicParsing="false" onAction="#save" text="SAVE" />
+      <Button layoutX="700.0" layoutY="312.0" mnemonicParsing="false" onAction="#delete" text="DELETE" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1059.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+    <children>
+        <VBox prefHeight="553.0" prefWidth="142.0" style="-fx-background-color: #37003c;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+            <ImageView fitHeight="169.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../JetBrains/Icons/OIP.jpg" />
+               </image>
+            </ImageView>
+                <Button id="btnTuyChinh" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnCustom" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: #37003c;" text="CUSTOM" textFill="WHITE">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font></Button>
+                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnStatiscial" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: #37003c;" text="STATISCIAL" textFill="WHITE">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font></Button>
+                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnRank" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: #37003c;" text="RANK" textFill="WHITE">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font></Button>
+                <Button alignment="BASELINE_LEFT" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#btnResult" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: #37003c;" text="RESULT" textFill="WHITE">
+               <graphic>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font></Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#btnHighlight" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: #37003c;" text="HIGHLIGHTS" textFill="WHITE">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnLogOut" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: #37003c;" text="LOG OUT" textFill="WHITE">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Button>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="193.0" prefWidth="152.0" text="No Room For Racism" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="15.0" />
+               </font>
+            </Label>
+            </children>
+        </VBox>
+      <HBox layoutX="151.0" prefHeight="170.0" prefWidth="964.0" style="-fx-background-color: #37003c;" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="172.0" prefWidth="908.0" text="PREMIER LEAGUE MANAGEMENT SYSTEM">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.7386363780859745" endY="0.5946969904682853" startX="0.7386363681518671" startY="0.26893940838900476">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.8666666746139526" green="0.24313725531101227" blue="0.3294117748737335" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.41960784792900085" green="0.8980392217636108" blue="0.5215686559677124" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fitHeight="510.0" fitWidth="914.0" layoutX="153.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../JetBrains/Icons/R.jpg" />
+         </image>
+      </ImageView>
+    </children>
+   <padding>
+      <Insets left="50.0" />
+   </padding>
+</AnchorPane>

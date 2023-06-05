@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="507.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Statistical.Statistical_Controller">
+    <children>
+        <Button layoutX="14.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnBack" text="Back" />
+      <TableView fx:id="tableViewThongKe" layoutX="68.0" layoutY="35.0" prefHeight="410.0" prefWidth="762.0">
+        <columns>
+          <TableColumn fx:id="idPlayerCol" prefWidth="75.0" text="ID PLAYER" />
+          <TableColumn fx:id="idClubCol" prefWidth="75.0" text="ID CLUB" />
+            <TableColumn fx:id="namePlayerCol" prefWidth="185.59996032714844" text="NAME PLAYER" />
+            <TableColumn fx:id="shirtNumberCol" prefWidth="103.20001220703125" text="SHIRT NUMBER" />
+            <TableColumn fx:id="goalCol" prefWidth="84.79998779296875" text="GOAL" />
+            <TableColumn fx:id="yellowCardCol" prefWidth="108.80010986328125" text="YELLOWCARD" />
+            <TableColumn fx:id="redCardCol" prefWidth="131.9998779296875" text="REDCARD" />
+        </columns>
+      </TableView>
+    </children>
+</AnchorPane>
