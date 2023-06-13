@@ -39,6 +39,7 @@ public class CreateAccountController {
         c = SQLConnect.getConnection();
         if (usernameTextField.getText().isBlank() == false && passwordPasswordField.getText().isBlank() == false) {
             try {
+                /*Check whether username already exist*/
                 PreparedStatement check = c.prepareStatement("SELECT count(1) from user where username = ?");
                 check.setString(1,usernameTextField.getText());
                 ResultSet rs = check.executeQuery();
