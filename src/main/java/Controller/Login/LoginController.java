@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 
 public class LoginController {
@@ -70,6 +71,13 @@ public class LoginController {
     @FXML
     private void btnCreateAnAccount(ActionEvent actionEvent) throws IOException {
         MainController.changeScene("Create-Account.fxml",actionEvent);
+        Properties p = new Properties();
+
+    }
+
+    @FXML
+    private void btnForget(ActionEvent actionEvent) {
+        MainController.changeScene("Forget-Password.fxml",actionEvent);
     }
 
 }

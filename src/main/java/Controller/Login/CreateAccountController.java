@@ -19,7 +19,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 public class CreateAccountController {
 
     @FXML
@@ -30,6 +29,9 @@ public class CreateAccountController {
 
     @FXML
     private PasswordField passwordPasswordField;
+
+    @FXML
+    private TextField emailTextField1;
     private Connection c;
     private PreparedStatement pst;
 
@@ -37,20 +39,26 @@ public class CreateAccountController {
     @FXML
     private void btnCreate(ActionEvent actionEvent) {
         c = SQLConnect.getConnection();
-        if (usernameTextField.getText().isBlank() == false && passwordPasswordField.getText().isBlank() == false) {
+        if (usernameTextField.getText().isBlank() == false && passwordPasswordField.getText().isBlank() == false && emailTextField1.getText().isBlank() == false) {
             try {
                 /*Check whether username already exist*/
                 PreparedStatement check = c.prepareStatement("SELECT count(1) from user where username = ?");
-                check.setString(1,usernameTextField.getText());
+                check.setString(1, usernameTextField.getText());
                 ResultSet rs = check.executeQuery();
-                if(rs.next() && rs.getInt(1)>0){
+                if (rs.next() && rs.getInt(1) > 0) {
                     messegeLabel.setText("Username already exits!");
                 } else {
-                    pst = c.prepareStatement("Insert into user(username,password) values (?,?)");
+                    pst = c.prepareStatement("Insert into user(username,password, email) values (?,?,?)");
                     pst.setString(1, usernameTextField.getText());
                     pst.setString(2, passwordPasswordField.getText());
-                    pst.executeUpdate();
-                    messegeLabel.setText("You were created account!");
+                    pst.setString(3, emailTextField1.getText());
+                    if (emailTextField1.getText().contains("@")) {
+                        pst.executeUpdate();
+                        messegeLabel.setText("You were created account!");
+                    } else {
+                        messegeLabel.setText("Incorrect email syntax");
+                    }
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -64,6 +72,7 @@ public class CreateAccountController {
 
     @FXML
     private void btnCancel(ActionEvent actionEvent) throws IOException {
-        MainController.changeScene("Login.fxml",actionEvent);
+        MainController.changeScene("Login.fxml", actionEvent);
+
     }
 }
