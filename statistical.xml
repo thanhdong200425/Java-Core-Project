@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<player>
+    <id idClub="2" idPlayer="1"/>
+    <name>Dong</name>
+    <shirtNumber>7</shirtNumber>
+    <goals>10</goals>
+    <card redCard="0" yellowCard="0"/>
+</player>

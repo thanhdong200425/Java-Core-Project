@@ -3,6 +3,8 @@ module com.do_an_main {
     requires javafx.fxml;
     requires java.sql;
     requires java.desktop;
+    requires java.mail;
+
 
 
 
