@@ -4,14 +4,14 @@ import Controller.MainController;
 import DAO.SQLConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import javax.mail.*;
 import javax.mail.internet.*;
 
@@ -53,24 +53,36 @@ public class ForgetPassword {
     @FXML
     public void apply(ActionEvent actionEvent) throws SQLException {
         if (usernameTextField.getText().isBlank() == false) {
-            try {
-                c = SQLConnect.getConnection();
-                PreparedStatement pst = c.prepareStatement("SELECT * FROM user WHERE username = ? ");
-                pst.setString(1, usernameTextField.getText());
-                ResultSet row = pst.executeQuery();
-                while (row.next()) {
-                    String originPassword = row.getString("password");
-                    String newPassword = caesarCipher(originPassword, 2);
-                    System.out.println(newPassword);
-                    updatePassword(newPassword);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("RESET PASSWORD");
+            alert.setContentText("Do you want to reset password");
+
+            ButtonType buttonTypeYes = new ButtonType("YES", ButtonBar.ButtonData.YES);
+            ButtonType buttonTypeNo = new ButtonType("NO", ButtonBar.ButtonData.NO);
+
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+            Optional<ButtonType> option = alert.showAndWait();
+            if (option.get().getButtonData() == ButtonBar.ButtonData.YES) {
+                try {
+                    c = SQLConnect.getConnection();
+                    PreparedStatement pst = c.prepareStatement("SELECT * FROM user WHERE username = ? ");
+                    pst.setString(1, usernameTextField.getText());
+                    ResultSet row = pst.executeQuery();
+                    while (row.next()) {
+                        String originPassword = row.getString("password");
+                        String newPassword = caesarCipher(originPassword, 2);
+                        System.out.println(newPassword);
+                        updatePassword(newPassword);
+                    }
+
+
+                    // Làm đến phần mã hóa mật khẩu nhưng đang kẹt ở chỗ tìm kiếm database
+
+                    SQLConnect.closeConnection(c);
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
                 }
-
-
-                // Làm đến phần mã hóa mật khẩu nhưng đang kẹt ở chỗ tìm kiếm database
-
-                SQLConnect.closeConnection(c);
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
             }
         } else {
             messegeLabel.setText("Username can't blank");

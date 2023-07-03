@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<player>
-    <id idClub="2" idPlayer="1"/>
-    <name>Dong</name>
-    <shirtNumber>7</shirtNumber>
-    <goals>10</goals>
-    <card redCard="0" yellowCard="0"/>
-</player>
+<players>
+    <player>
+        <id idClub="1" idPlayer="1"/>
+        <name>1</name>
+        <shirtNumber>1</shirtNumber>
+        <goals>1</goals>
+        <card redCard="1" yellowCard="1"/>
+    </player>
+    <player>
+        <id idClub="2" idPlayer="2"/>
+        <name>1</name>
+        <shirtNumber>1</shirtNumber>
+        <goals>1</goals>
+        <card redCard="1" yellowCard="1"/>
+    </player>
+</players>

@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -74,15 +75,51 @@ public class Statistical_Controller implements Initializable {
 
     @FXML
     private void btnSave(ActionEvent actionEvent) throws Exception {
-        Player player = tableViewThongKe.getSelectionModel().getSelectedItem();
-        int idPlayer = player.getIdPlayer();
-        int idClub = player.getIdClub();
-        String namePlayer = player.getNamePlayer();
-        int shirtNumber = player.getShirtNumber();
-        int goal = player.getGoal();
-        int redCard = player.getRedCard();
-        int yellowCard = player.getYellowCard();
-        saveToXML(idPlayer, idClub, namePlayer, shirtNumber, goal, redCard, yellowCard);
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.newDocument();
+
+        Element playersTag = document.createElement("players");
+        document.appendChild(playersTag);
+
+        for (Player player : tableViewThongKe.getItems()) {
+            Element playerTag = document.createElement("player");
+            playersTag.appendChild(playerTag);
+
+            // ID tag
+            Element idTag = document.createElement("id");
+            idTag.setAttribute("idClub", String.valueOf(player.getIdClub()));
+            idTag.setAttribute("idPlayer", String.valueOf(player.getIdPlayer()));
+            playerTag.appendChild(idTag);
+
+            // Name tag
+            Element nameTag = document.createElement("name");
+            nameTag.setTextContent(player.getNamePlayer());
+            playerTag.appendChild(nameTag);
+
+            // Shirt number tag
+            Element shirtNumberTag = document.createElement("shirtNumber");
+            shirtNumberTag.setTextContent(String.valueOf(player.getShirtNumber()));
+            playerTag.appendChild(shirtNumberTag);
+
+            // Goals tag
+            Element goalsTag = document.createElement("goals");
+            goalsTag.setTextContent(String.valueOf(player.getGoal()));
+            playerTag.appendChild(goalsTag);
+
+            // Card tag
+            Element cardTag = document.createElement("card");
+            cardTag.setAttribute("yellowCard", String.valueOf(player.getYellowCard()));
+            cardTag.setAttribute("redCard", String.valueOf(player.getRedCard()));
+            playerTag.appendChild(cardTag);
+        }
+
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(document);
+        StreamResult result = new StreamResult(new File("statistical.xml"));
+        transformer.transform(source, result);
+
     }
 
 
@@ -125,48 +162,5 @@ public class Statistical_Controller implements Initializable {
         }
     }
 
-    private void saveToXML(int idPlayer, int idClub, String namePlayer, int shirtNumber, int goal, int redCard, int yellowCard) throws Exception {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.newDocument();
 
-        /*Player tag*/
-        Element playerTag = document.createElement("player");
-        document.appendChild(playerTag);
-
-        /*Infomation*/
-        // ID
-        Element idTag = document.createElement("id");
-        idTag.setAttribute("idPlayer", String.valueOf(idPlayer));
-        idTag.setAttribute("idClub", String.valueOf(idClub));
-        playerTag.appendChild(idTag);
-
-        // Name
-        Element nameTag = document.createElement("name");
-        nameTag.setTextContent(namePlayer);
-        playerTag.appendChild(nameTag);
-
-        // Shirt number
-        Element shirtNumberTag = document.createElement("shirtNumber");
-        shirtNumberTag.setTextContent(String.valueOf(shirtNumber));
-        playerTag.appendChild(shirtNumberTag);
-
-        // Goal
-        Element goalTag = document.createElement("goals");
-        goalTag.setTextContent(String.valueOf(goal));
-        playerTag.appendChild(goalTag);
-
-        // Card
-        Element card = document.createElement("card");
-        card.setAttribute("yellowCard", String.valueOf(yellowCard));
-        card.setAttribute("redCard", String.valueOf(redCard));
-        playerTag.appendChild(card);
-
-        /*Save to file*/
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
-        DOMSource domSource = new DOMSource(document);
-        StreamResult file = new StreamResult(new File("statistical.xml"));
-        transformer.transform(domSource, file);
-    }
 }

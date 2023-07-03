@@ -85,7 +85,7 @@ public class Custom_PLAYER_Controller implements Initializable {
 
     @FXML
     private void back(ActionEvent actionEvent) throws IOException {
-        MainController.changeScene("Custom.fxml",actionEvent);
+        MainController.changeScene("Custom.fxml", actionEvent);
     }
 
     @Override
@@ -169,9 +169,6 @@ public class Custom_PLAYER_Controller implements Initializable {
                 player.setShirtNumber(Integer.parseInt(rs.getString("SHIRTNUMBER")));
 
                 listPlayer.add(player);
-                SQLConnect.closeConnection(c);
-
-
             }
 
 
@@ -229,8 +226,9 @@ public class Custom_PLAYER_Controller implements Initializable {
     private void delete(ActionEvent actionEvent) {
         c = SQLConnect.getConnection();
         try {
-            pst = c.prepareStatement("DELETE FROM player WHERE IDPLAYER = ?");
+            pst = c.prepareStatement("DELETE FROM player WHERE IDPLAYER = ? AND IDCLB = ?");
             pst.setInt(1, Integer.parseInt(textField_IdPlayer.getText()));
+            pst.setInt(2, Integer.parseInt(textField_IdClub.getText()));
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cofirm Delete");
             alert.setContentText("Are you sure to delete?");
@@ -255,7 +253,6 @@ public class Custom_PLAYER_Controller implements Initializable {
 
 
     }
-
 
 
 }
