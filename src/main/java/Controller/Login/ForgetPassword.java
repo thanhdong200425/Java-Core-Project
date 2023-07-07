@@ -72,13 +72,8 @@ public class ForgetPassword {
                     while (row.next()) {
                         String originPassword = row.getString("password");
                         String newPassword = caesarCipher(originPassword, 2);
-                        System.out.println(newPassword);
                         updatePassword(newPassword);
                     }
-
-
-                    // Làm đến phần mã hóa mật khẩu nhưng đang kẹt ở chỗ tìm kiếm database
-
                     SQLConnect.closeConnection(c);
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());

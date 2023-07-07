@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Support.SupportController">
+    <children>
+        <TextField fx:id="textFieldMessage" layoutX="126.0" layoutY="494.0" prefHeight="25.0" prefWidth="497.0" promptText="Message..." style="-fx-border-radius: 50px;" />
+        <Button layoutX="61.0" layoutY="494.0" mnemonicParsing="false" onAction="#btnBack" text="Back" />
+        <Button layoutX="645.0" layoutY="494.0" mnemonicParsing="false" onAction="#btnSend" text="Send" />
+      <ListView fx:id="chatBox" layoutX="59.0" layoutY="36.0" prefHeight="432.0" prefWidth="632.0" />
+    </children>
+</Pane>

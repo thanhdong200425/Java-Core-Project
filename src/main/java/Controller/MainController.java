@@ -28,22 +28,22 @@ public class MainController {
 
     @FXML
     private void btnCustom(ActionEvent event) throws IOException {
-        changeScene("Custom.fxml",event);
+        changeScene("Custom.fxml", event);
     }
 
     @FXML
     private void btnRank(ActionEvent event) throws IOException {
-       changeScene("Rank.fxml",event);
+        changeScene("Rank.fxml", event);
     }
 
     @FXML
     private void btnStatiscial(ActionEvent event) throws IOException {
-        changeScene("Statistical.fxml",event);
+        changeScene("Statistical.fxml", event);
     }
 
     @FXML
     private void btnResult(ActionEvent event) throws IOException {
-        changeScene("Result.fxml",event);
+        changeScene("Result.fxml", event);
     }
 
     @FXML
@@ -63,12 +63,17 @@ public class MainController {
         khi mà nhấn vào nút đóng trên hộp thoại, thì giá trị trả về sẽ là null, còn khi nhấn vào một nút bất kì xuất hiện trên hộp thoại, thì nút nhấn
         đó sẽ trả về giá trị tương ứng và sẽ được lưu trong biến "result"
          */
-        if(result.get()==ButtonType.OK){
+        if (result.get() == ButtonType.OK) {
             // Phương thức get() ở đây là để truy xuất giá trị của biến result, và đem nó so sánh với giá trị của button "OK", nếu bằng thì sẽ trả về true,
             // còn kh thì false
-            changeScene("Login.fxml",actionEvent);
+            changeScene("Login.fxml", actionEvent);
         } else {
         }
+    }
+
+    @FXML
+    private void btnSupport(ActionEvent actionEvent) {
+        changeScene("Support.fxml", actionEvent);
     }
 
     public static void changeScene(String string, ActionEvent actionEvent) {
@@ -76,7 +81,7 @@ public class MainController {
 
             Parent parent = FXMLLoader.load(Main_Program.class.getResource(string));
             Scene scene = new Scene(parent);
-            Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

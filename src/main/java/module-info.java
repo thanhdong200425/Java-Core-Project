@@ -26,4 +26,6 @@ module com.do_an_main {
     opens Controller.Result to javafx.fxml;
     exports Controller.Statistical;
     opens Controller.Statistical to javafx.fxml;
+    exports Controller.Support;
+    opens Controller.Support to javafx.fxml;
 }
