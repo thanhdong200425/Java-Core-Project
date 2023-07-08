@@ -1,5 +1,6 @@
 package Controller.Support;
 
+// Class này ra đời để kiểm soát tin nhắn là của phía nào.
 public class ChatMessage {
     private String content;
     private MessageType messageType;

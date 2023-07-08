@@ -41,7 +41,7 @@ public class SupportController implements Initializable {
     }
 
 
-    // Oke (NHƯNG NÊN XEM LẠI)
+    // Oke
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Initial list to save message in "Chat box"
@@ -62,11 +62,11 @@ public class SupportController implements Initializable {
                 // Nó phải được kêu trước khi override lại chính nó để có thể cập nhật đúng với từng cell trong ListView.
                 super.updateItem(item, empty);
                 // Đây là bước override lại updateItem()
-                if(empty || item == null) {
+                if (empty || item == null) {
                     setText(null);
                 } else {
                     setText(item.getContent());
-                    if(item.getType() == MessageType.CLIENT) {
+                    if (item.getType() == MessageType.CLIENT) {
                         setStyle("-fx-alignment: center-right;");
                     } else {
                         setStyle("-fx-alignment: center-left;");
@@ -87,7 +87,7 @@ public class SupportController implements Initializable {
         textFieldMessage.clear();
     }
 
-    // Oke (NHƯNG NÊN XEM LẠI)
+    // Oke
     private void listenForMessagesFromServer() {
         Thread thread = new Thread(
                 () -> {
