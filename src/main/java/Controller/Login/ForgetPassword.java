@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
@@ -71,8 +72,10 @@ public class ForgetPassword {
                     ResultSet row = pst.executeQuery();
                     while (row.next()) {
                         String originPassword = row.getString("password");
+                        String email = row.getString("email");
                         String newPassword = caesarCipher(originPassword, 2);
                         updatePassword(newPassword);
+                        sendEmail(email, newPassword);
                     }
                     SQLConnect.closeConnection(c);
                 } catch (SQLException e) {
@@ -80,10 +83,61 @@ public class ForgetPassword {
                 }
             }
         } else {
-            messegeLabel.setText("Username can't blank");
+            messegeLabel.setText("Username can't be blank");
         }
-
     }
+
+    // Oke
+    private void sendEmail(String recipient, String newPassword) {
+        // Information of protocol, port, and sender
+        String host = "smtp.gmail.com";
+        String port = "587";
+        String username = "thanhdong200425@gmail.com";
+        String password = "uxkaiaxazdklerrm";
+
+        // Sử dụng class Properties để lưu cấu hình dựa trên put()
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", port);
+        props.put("mail.smtp.auth", "true");
+        /*"mail.smtp.auth": Đây là một thuộc tính để xác định xem xác thực (authentication) sẽ được sử dụng khi gửi email thông qua máy chủ SMTP.
+        Nếu giá trị của thuộc tính này là "true", đồng nghĩa với việc sử dụng xác thực. Điều này yêu cầu người gửi cung cấp thông tin xác thực (username và password)
+         để được xác minh trước khi gửi email. Nếu giá trị là "false", không yêu cầu xác thực.*/
+        props.put("mail.smtp.starttls.enable", "true");
+        /*Đây là một thuộc tính để xác định xem có kích hoạt TLS (Transport Layer Security) trong giao tiếp với máy chủ SMTP hay không.
+        TLS là một giao thức bảo mật được sử dụng để mã hóa dữ liệu gửi đi và nhận về trong quá trình truyền tải.
+         Nếu giá trị của thuộc tính này là "true", kích hoạt TLS. Nếu giá trị là "false", không sử dụng TLS.*/
+
+
+        // Sử dụng class "Session" để tạo ra một phiên làm việc giữa ứng dụng ở localhost và server
+        Session session = Session.getInstance(props, new Authenticator() {
+
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+            // Authenticator là một abstract class, nó dùng để xác thực thông tin email trước khi đến các hành vi tiếp theo, nhằm đảo bảo email của người gửi hoặc
+            // người nhận là có thật
+        });
+
+        try {
+            String subject = "RESET PASSWORD";
+            String body = "Hi, I'm admin. THANKS FOR USING MY APPLICATION \n" +
+                    "Your new password: " + newPassword + "\n" +
+                    "PLEASE REMEMBER IT";
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+            message.setSubject(subject);
+            message.setText(body);
+
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     public void cancel(ActionEvent actionEvent) {
